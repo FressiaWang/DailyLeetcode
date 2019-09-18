@@ -61,3 +61,25 @@ def myAtoi(self, str):
             return value
         except ValueError:
             return 0
+def myAtoi(self, str):
+        """
+        :type str: str
+        :rtype: int
+        """          
+        if len(str) == 1 and str.isdigit(): return int(str)
+        for i, s in enumerate(str):
+            if s == ' ': continue
+            if s in '+-' or s.isdigit(): break
+            return 0
+        if (not str) or ((i == len(str)-1) and not s.isdigit()): return 0
+        for j in range(i+1,len(str)):
+            if not str[j].isdigit(): break
+        
+        try:
+            res = int(str[i:j+str[j].isdigit()])
+            if (res.bit_length() >= 32):
+                return (2**31-1) if res >0 else -2**31
+            return res
+        except ValueError:
+            return 0
+          
