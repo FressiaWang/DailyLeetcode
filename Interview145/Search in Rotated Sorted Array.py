@@ -32,8 +32,8 @@ class Solution(object):
         if nums[left] == target:
             return left
         if nums[right] == target:
-            return right
-        while right - left > 1:
+            return right 
+        while right - left > 1: # right > left 
             pos = (right + left) // 2
             val = nums[pos]
             if val == target:
@@ -42,11 +42,11 @@ class Solution(object):
                 if ontheleft :
                     right = pos
                 else:
-                    left = pos
+                    left = pos # left = pos + 1
             elif val > target:
-                right = pos
+                right = pos 
             else:
-                left = pos
+                left = pos  # left = pos +1
         return -1
 """
 I found a very simple and easy understanding solution.
