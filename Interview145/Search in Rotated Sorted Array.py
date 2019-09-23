@@ -24,11 +24,12 @@ So, when our guess in the middle and our target lies on different sides, we know
 """
 class Solution(object):
     def search(self, nums, target):
-        if not nums:
+        if not nums: # for nums = []
             return -1
         start = nums[0]
         left, right = 0, len(nums) - 1
         ontheleft = target > start
+	# for len(nums) == 1 : left == right ; for len(nums)==2 there is no rotated array
         if nums[left] == target:
             return left
         if nums[right] == target:
