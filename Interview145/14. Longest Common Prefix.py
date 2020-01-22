@@ -64,5 +64,16 @@ def longestCommonPrefix(self, S: List[str]) -> str:
         m, M, i = min(S), max(S), 0
         for i in range(min(len(m),len(M))):
             if m[i] != M[i]: break
-        else: i += 1
+        else: i += 1 # for only one string eg. ['a']
+        return m[:i]
+
+def longestCommonPrefix(self, strs):
+        if not strs: return ''
+        m, M = min(strs), max(strs)
+        i = 0
+        while i < (min(len(m),len(M))):
+            if m[i] != M[i]:
+                break
+            else:
+                i += 1
         return m[:i]
