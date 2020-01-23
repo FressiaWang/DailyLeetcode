@@ -43,8 +43,8 @@ class Solution(object):
     :rtype: bool
     """
     big = set()
-    for i in xrange(0,9):
-        for j in xrange(0,9):
+    for i in range(9):
+        for j in range(9):
             if board[i][j]!='.':
                 cur = board[i][j]
                 if (i,cur) in big or (cur,j) in big or (i//3,j//3,cur) in big:
