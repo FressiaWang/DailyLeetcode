@@ -21,9 +21,8 @@ def mySqrt(self, x):
         :type x: int
         :rtype: int
         """
-        #if x == x*x: return x
         l, h = 0, x
-        while l <= h:
+        while l <= h: #判断条件包含=是为了考虑0这种情况
             mid = (l + h) // 2
             if mid * mid <= x < (mid + 1) * (mid + 1):
                 return mid
@@ -32,10 +31,6 @@ def mySqrt(self, x):
             else:
                 l = mid + 1
 def mySqrt(self, x):
-        """
-        :type x: int
-        :rtype: int
-        """
         if x == x*x: return x
         l, h = 0, x
         while l < h:
@@ -47,11 +42,6 @@ def mySqrt(self, x):
             else:
                 l = mid + 1
 def mySqrt(self, x):
-        """
-        :type x: int
-        :rtype: int
-        """
-        #if x == x*x: return x
         l, h = 0, x
         while l < h:
             mid = (l + h) // 2
