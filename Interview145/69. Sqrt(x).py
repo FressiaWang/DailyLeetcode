@@ -29,7 +29,7 @@ def mySqrt(self, x):
             elif mid * mid > x:
                 h = mid 
             else:
-                l = mid + 1
+                l = mid + 1 # + 1 是为了解决x=1 只有一个元素时避免进入无限循环
 def mySqrt(self, x):
         if x == x*x: return x
         l, h = 0, x
