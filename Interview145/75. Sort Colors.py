@@ -29,7 +29,7 @@ If the white pointer is blue, we swap with the latest unclassified element.
 def sortColors(self, nums):
     red, white, blue = 0, 0, len(nums)-1
     
-    while white <= blue:
+    while white <= blue: #must contain = for the case [2,0,1]
         if nums[white] == 0:
             nums[red], nums[white] = nums[white], nums[red]
             white += 1
