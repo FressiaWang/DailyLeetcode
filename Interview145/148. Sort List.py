@@ -38,3 +38,14 @@ class Solution(object):
             pre = pre.next
         pre.next = r or l
         return head
+    
+    def merge(self, l, r):
+        head = cur = ListNode(0)
+        while l and r:
+            if l.val < r.val:
+                cur.next, l = l, l.next
+            else:
+                cur.next, r = r, r.next
+            cur = cur.next
+        cur.next = l or r
+        return head.next
