@@ -12,6 +12,10 @@ Output: true
 Explanation: We might do the following sequence:
 push(1), push(2), push(3), push(4), pop() -> 4,
 push(5), pop() -> 5, pop() -> 3, pop() -> 2, pop() -> 1
+
+Time Complexity: O(N)O(N), where NN is the length of pushed and popped.
+
+Space Complexity: O(N)O(N).
 """
 def validateStackSequences(self, pushed, popped):
         """
