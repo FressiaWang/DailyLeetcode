@@ -42,3 +42,31 @@ def combinationSum(self, candidates, target):
     
     dfs(target, [])
     return result
+
+  def combinationSum(self, candidates, target):
+    res = []
+    candidates.sort()
+    self.dfs(candidates, target, 0, [], res)
+    return res
+    
+def dfs(self, nums, target, index, path, res):
+    if target < 0:
+        return  # backtracking
+    if target == 0:
+        res.append(path)
+        return 
+    for i in xrange(index, len(nums)):
+        self.dfs(nums, target-nums[i], i, path+[nums[i]], res)
+        
+def combinationSum(self, candidates, target):
+        res = []
+        candidates = sorted(candidates)
+        self.dfs(candidates,target,[],res)
+        return res
+    def dfs(self, nums, remain, path, res):
+        if remain < 0: return
+        if remain == 0:
+            res.append(path)
+            return
+        for i in range(len(nums)):
+            self.dfs(nums[i:], remain-nums[i], path+[nums[i]], res) 
