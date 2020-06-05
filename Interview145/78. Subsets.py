@@ -31,3 +31,16 @@ class Solution(object):
             for i in range(len(res)):    # for s in res: doesn't work because res update immediately to make the loop infinitely 
                 res.append(res[i]+[n])   # res.append(s + [n])
         return res
+      
+def subsets(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        res = []
+        self.dfs(nums, [], res)
+        return res
+    def dfs(self, nums, path, res):
+        res.append(path)
+        for i in range(len(nums)):
+            self.dfs(nums[i+1:], path + [nums[i]], res)
