@@ -29,3 +29,10 @@ def maxProduct(self, nums):
         locMax = max(tmp*nums[i], nums[i], locMax*nums[i])
         gloMax = max(gloMax, locMax)
     return gloMax
+
+def maxProduct(self, nums):
+        prev_min = prev_max = global_max = nums[0]
+        for num in nums[1:]:
+            minn, maxx = min(num, prev_max*num, prev_min*num), max(num, prev_max*num, prev_min*num)
+            prev_min, prev_max, global_max = minn, maxx, max(global_max, maxx)
+        return global_max
