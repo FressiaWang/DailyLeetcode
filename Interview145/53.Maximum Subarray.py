@@ -45,3 +45,56 @@ def maxSubArray(self, nums):
             MAX_SUM = pre
             end=i
     return MAX_SUM
+
+def maxSubArray(self, nums: List[int]) -> int:
+        dp = [0]*len(nums)
+        dp[0] = nums[0]
+        for i in range(1, len(nums)):
+            dp[i] = max(dp[i-1]+nums[i], nums[i])
+        return max(dp)
+ 
+def max_sum(nums):
+    ret = float("-inf")  # 负无穷
+    if not nums:
+        return ret
+    current = 0
+    for i in nums:
+        if current <= 0:
+            current = i
+        else:
+            current += i
+        ret = max(ret, current)
+    return ret
+
+# DP, constant space
+def maxSubArray2(self, nums):
+    if not nums:
+        return None
+    loc = glo= nums[0]
+    for i in xrange(1, len(nums)):
+        loc = max(loc+nums[i], nums[i])
+        glo = max(loc, glo)
+    return glo
+
+def maxSubArrayHelper(self,nums, l, r):
+        if l > r:
+            return -2147483647
+        m = (l+r) / 2
+        
+        leftMax = sumNum = 0
+        for i in range(m - 1, l - 1, -1):
+            sumNum += nums[i]
+            leftMax = max(leftMax, sumNum)
+        
+        rightMax = sumNum = 0
+        for i in range(m + 1, r + 1):
+            sumNum += nums[i]
+            rightMax = max(rightMax, sumNum)
+            
+        leftAns = self.maxSubArrayHelper(nums, l, m - 1)
+        rightAns = self.maxSubArrayHelper(nums, m + 1, r)
+            
+        return max(leftMax + nums[m] + rightMax, max(leftAns, rightAns))
+        
+     def maxSubArray(self, nums):
+        return self.maxSubArrayHelper(nums, 0, len(nums) - 1)
