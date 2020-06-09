@@ -49,3 +49,17 @@ class Solution(object):
                 left = seen[v] + 1
             seen[v] = right
         return res
+def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        seen = ''
+        mx = 0
+        for x in s:
+            if x in seen:
+                seen = seen[seen.index(x)+1:] + x
+            else:
+                seen += x
+            mx = max(mx, len(seen))
+        return mx
