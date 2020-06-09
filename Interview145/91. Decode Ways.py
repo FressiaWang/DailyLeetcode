@@ -33,3 +33,12 @@ def numDecodings(self, s):
             if 10 <= int(s[i-2:i]) <= 26:
                 dp[i] += dp[i-2]
         return dp[-1]
+def numDecodings(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        v, w, p = 0, int(s>''), ''
+        for d in s:
+            v, w, p = w, int(d>'0')*w + (9<int(p+d)<27)*v, d
+        return w
