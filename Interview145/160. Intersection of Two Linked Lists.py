@@ -31,3 +31,9 @@ class Solution(object):
             if not pB:
                 pB = headA
         return None
+def getIntersectionNode(self, headA, headB):
+    p1, p2 = headA, headB
+    while p1 is not p2:
+        p1 = p1.next if p1 else headB
+        p2 = p2.next if p2 else headA
+    return p1
