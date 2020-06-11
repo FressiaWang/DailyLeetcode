@@ -34,3 +34,22 @@ class Solution(object):
                     child_level.append(lef.right)
             level = child_level
         return depth
+def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        from collections import deque
+        p = root and deque([(root, 1)])
+        d = 0
+        while p:
+            node, d = p.popleft()
+            if node.left:
+                p.append((node.left, d+1))
+            if node.right:
+                p.append((node.right, d+1))
+        return d
+def maxDepth(self, root):
+        if not root:
+            return 0
+        return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
