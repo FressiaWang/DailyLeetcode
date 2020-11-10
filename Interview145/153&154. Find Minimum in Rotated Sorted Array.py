@@ -1,4 +1,5 @@
 """
+153. No duplicate
 Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
 
 (i.e.,  [0,1,2,4,5,6,7] might become  [4,5,6,7,0,1,2]).
@@ -15,6 +16,8 @@ Example 2:
 
 Input: [4,5,6,7,0,1,2]
 Output: 0
+
+154. Duplicate
 """
 class Solution(object):
 def findMin(self, nums):
@@ -33,15 +36,14 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        if not nums: return None
         l, r = 0, len(nums)-1
-        if nums[l] <= nums[r]: 
-            return nums[l]
         while l < r:
-            mid = (l + r) // 2
-            if nums[mid] > nums[l]:
-                l = mid
-            elif nums[mid] < nums[r]:
-                r = mid
+            m = (l+r) // 2
+            if nums[m] < nums[r]:
+                r = m
+            elif nums[m] > nums[r]:
+                l = m + 1
             else:
-                return nums[r]
+                r -= 1
+        return nums[l]
+
